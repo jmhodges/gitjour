@@ -6,7 +6,7 @@ Thread.abort_on_exception = true
 
 module Gitjour
   VERSION = "6.3.0"
-  GitService = Struct.new(:name, :host, :port, :description)  
+  GitService = Struct.new(:name, :host, :port, :description)
 
   class Application
 
@@ -27,8 +27,8 @@ module Gitjour
       end
 
       private
-			def list
-				service_list.each do |service|
+      def list
+        service_list.each do |service|
           puts "=== #{service.name} on #{service.host}:#{service.port} ==="
           puts "  gitjour clone #{service.name}"
           if service.description != '' && service.description !~ /^Unnamed repository/
@@ -36,7 +36,7 @@ module Gitjour
           end
           puts
         end
-			end
+      end
 
       def clone(repository_name, *rest)
         dir = rest.shift || repository_name
